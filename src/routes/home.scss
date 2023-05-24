@@ -1,0 +1,52 @@
+#home {
+  section {
+    max-width: var(--content-width);
+    margin: 0 auto;
+
+    p {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  }
+
+  #hero {
+
+  }
+
+  #about {
+    .content {
+      display: grid;
+      grid-template-columns: 1fr minmax(100px, 300px);
+      gap: 20px;
+      
+      .right {
+        padding: 20px;
+        background: var(--background-contrast);
+        border: 1px solid var(--text);
+        border-radius: 10px;
+        position: relative;
+        height: fit-content;
+
+        &::after {
+          content: "🥰";
+          display: block;
+          position: absolute;
+          right: 10px;
+          bottom: 10px;
+          font-size: 1.55rem;
+        }
+
+        img {
+          background: var(--background);
+          width: 100%;
+          aspect-ratio: 1 / 1;
+          border: inherit;
+          border-radius: inherit;
+          user-select: none;
+          -webkit-user-drag: none;
+        }
+          
+      }
+    }
+  }
+}

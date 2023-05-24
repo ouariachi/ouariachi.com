@@ -1,0 +1,32 @@
+/*
+  VARIABLES
+*/
+
+:root {
+  --content-width: 1100px;
+
+  --neon-purple-1: #6700ff;
+  --neon-purple-2: #8a00ff;
+  --neon-purple-3: #b700ff;
+  --neon-purple-4: #da00ff;
+  --neon-purple-5: #f500ff;
+}
+
+:root[theme=dark] {
+  --background: #141414;
+  --background-rgb: 17, 17, 17;
+  --background-contrast: #0a0a0a;
+  
+  
+  --text: #e2e2e2;
+  --text-rgb: 226, 226, 226;
+}
+
+:root[theme=light] {
+  --background: #f0f0f0;
+  --background-rgb: 255, 255, 255;
+  --background-contrast: #ffffff;
+  
+  --text: #3d3d3d;
+  --text-rgb: 61, 61, 61;
+}

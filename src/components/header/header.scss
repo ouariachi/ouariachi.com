@@ -1,0 +1,36 @@
+#main-header {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-top: 20px;
+  user-select: none;
+
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+
+  .links {
+    .brand {
+      font-size: 22px;
+      font-weight: 900;
+    }
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 5px;
+
+    .btn {
+      cursor: pointer;
+      display: flex;
+      padding: 5px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+
+      &:hover {
+        border-color: var(--text);
+        background-color: rgba(var(--text-rgb), 0.1);
+      }
+    }
+  }
+}
