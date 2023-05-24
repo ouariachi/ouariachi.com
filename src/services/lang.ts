@@ -2,10 +2,15 @@ import { LangContent } from "~/interfaces/lang";
 
 export const Es: LangContent = {
   home: {
+    hero: {
+      title: "¡Hola! Soy Mohamed.",
+      info: "Desarrollador web en constante evolución, en busca de dominar tecnologías y enriquecer mis habilidades. Creatividad, innovación y crecimiento personal en cada proyecto.",
+      resume: "Currículum"
+    },
     about: {
       title: "Sobre mí",
       content: [
-        "¡Hola! Soy Mohamed Mohamed el Ouariachi, un apasionado programador web y móvil con una sólida formación y <a href='/portfolio'>proyectos</a> personales que respaldan mi experiencia. Me he especializado en la programación web utilizando principalmente JavaScript. Además, tengo conocimientos sólidos en PHP, HTML5, CSS3 y otros lenguajes y tecnologías relacionadas. Mi enfoque principal siempre ha sido crear soluciones útiles y efectivas que brinden una gran experiencia al usuario final.",
+        "¡Hola! Soy Mohamed Mohamed el Ouariachi, un apasionado programador web y móvil con una sólida formación y <a href='/portfolio'>proyectos</a> personales que respaldan mi experiencia. Me he especializado en la programación web utilizando principalmente JavaScript. También, tengo conocimientos sólidos en PHP, HTML5, CSS3 y otros lenguajes y tecnologías relacionadas. Mi enfoque principal siempre ha sido crear soluciones útiles y efectivas que brinden una gran experiencia al usuario final.",
         "Además, puedo desarrollar aplicaciones móviles para Android e iOS utilizando el poderoso Ionic Framework. Aunque hasta ahora he trabajado de forma independiente, estoy ansioso por unirme a un equipo colaborativo para seguir creciendo y aprendiendo. Estoy entusiasmado por llevar mis habilidades y conocimientos al siguiente nivel en mi primer empleo profesional. Si estás buscando un programador apasionado y comprometido que pueda materializar tus ideas digitales, ¡contáctame y trabajemos juntos para lograrlo!"
       ]
     }
@@ -14,6 +19,11 @@ export const Es: LangContent = {
 
 export const En: LangContent = {
   home: {
+    hero: {
+      title: "Hi! I'm Mohamed.",
+      info: "Web developer in constant evolution, striving to master technologies and enrich my skills. Creativity, innovation, and personal growth in every project.",
+      resume: "Resume"
+    },
     about: {
       title: "About me",
       content: [

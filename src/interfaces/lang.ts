@@ -1,5 +1,10 @@
 export interface LangContent {
   home: {
+    hero: {
+      title: string,
+      info: string,
+      resume: string
+    },
     about: {
       title: string,
       content: string[]

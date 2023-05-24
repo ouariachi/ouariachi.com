@@ -13,17 +13,16 @@
 }
 
 :root[theme=dark] {
-  --background: #141414;
+  --background: #1d1d1d;
   --background-rgb: 17, 17, 17;
   --background-contrast: #0a0a0a;
-  
   
   --text: #e2e2e2;
   --text-rgb: 226, 226, 226;
 }
 
 :root[theme=light] {
-  --background: #f0f0f0;
+  --background: #f3f3f3;
   --background-rgb: 255, 255, 255;
   --background-contrast: #ffffff;
   
