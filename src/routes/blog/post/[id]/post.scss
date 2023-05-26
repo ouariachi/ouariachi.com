@@ -106,5 +106,11 @@
         --bg-color: rgba(var(--color-secondary-rgb), 0.2);
       }
     }
+
+    :global(.example) {
+      border-radius: 5px;
+      padding: 10px;
+      background: var(--background-contrast);
+    }
   }
 }

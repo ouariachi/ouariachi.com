@@ -1,35 +1,43 @@
 import { component$, useSignal, useStylesScoped$, useVisibleTask$ } from '@builder.io/qwik';
-import { type DocumentHead, useLocation } from '@builder.io/qwik-city';
+import { type DocumentHead, useLocation, routeLoader$ } from '@builder.io/qwik-city';
 import type { Post } from '~/interfaces/posts';
 
 import Api from '~/services/api';
 import styles from "./post.scss?inline";
 
+export const usePost = routeLoader$(async (req) => {
+  const api = new Api();
+  const id = req.params.id;
+  let post: Post | undefined;
+  let status: "loading" | "error" | "success" = "loading";
+
+
+  try {
+    post = await api.getPost(Number(id), {showContent: true});
+    status = "success";
+  } catch (err) {
+    console.error(err);
+    status = "error";
+  }
+
+
+  return { post, status };
+});
+
 export default component$(() => {
   useStylesScoped$(styles)
-  const loc = useLocation();
-  const { id } = loc.params;
-  const post = useSignal<Post>();
-  const postStatus = useSignal<"loading" | "error" | "success">("loading")
+  const postData = usePost();
 
-  useVisibleTask$(() => {
-    const api = new Api();
-    api.getPost(Number(id), {showContent: true})
-      .then(data => {
-        post.value = data;
-        postStatus.value = "success";
-        document.title = data.title + " - Ouariachi";
-        document.querySelector("meta[name=description]")?.setAttribute("content", post.value.description);
-      })
-      .catch(err => {
-        postStatus.value = "error";
-        console.error(err)
-      });
-  });
 
   useVisibleTask$(({ track }) => {
-    track(() => post.value);
+    track(() => postData.value);
     
+    if(postData.value.status === "success") {
+      document.title = `${postData.value.post?.title} - M. Ouariachi`;
+      if(postData.value.post?.description)
+        document.querySelector("meta[name=description]")?.setAttribute("content", postData.value.post?.description);
+    } 
+
     const script = document.createElement("script");
     script.innerHTML = `
       document.querySelectorAll('pre code').forEach((el) => {
@@ -46,13 +54,12 @@ export default component$(() => {
 
   return (
     <main id="post">
-      { postStatus.value === "success" && 
+      { postData.value.status === "success" && 
         <div id="content">
-          <h1>{ post.value?.title }</h1>
-          <div dangerouslySetInnerHTML={post.value?.content}/>
+          <h1>{ postData.value.post?.title }</h1>
+          <div dangerouslySetInnerHTML={postData.value.post?.content}/>
         </div>
       }
-      
     </main>
   )
 });
