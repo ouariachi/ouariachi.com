@@ -1,4 +1,4 @@
-import { FetchedPost } from "./posts"
+import type { FetchedPost } from "./posts"
 
 export interface ApiPostParams {
     showContent?: boolean,

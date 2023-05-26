@@ -18,7 +18,7 @@ export default component$(() => {
   useContextProvider(ThemeContext, theme);
 
   // Load saved theme and listen to theme changes
-  useVisibleTask$(_ => {
+  useVisibleTask$(() => {
     const media = window.matchMedia("(prefers-color-scheme: light)");
     media.addEventListener('change', e => {
       localStorage.removeItem("theme");
@@ -47,7 +47,7 @@ export default component$(() => {
   useContextProvider(LangContext, lang);
 
   // load saved language
-  useVisibleTask$(_ => {
+  useVisibleTask$(() => {
     const langStored = localStorage.getItem("lang") as LangCode;
     if(langStored) {
       lang.code = langStored;
@@ -83,6 +83,7 @@ export default component$(() => {
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
+        <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js" async></script>
       </head>
       <body lang="es-ES">
         <RouterOutlet />

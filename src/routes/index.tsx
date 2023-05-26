@@ -1,14 +1,35 @@
-import { component$, useContext, useStylesScoped$, useTask$ } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
+import { component$, useContext, useStylesScoped$} from '@builder.io/qwik';
+import { type DocumentHead, routeLoader$, useNavigate } from '@builder.io/qwik-city';
 
 import homeStyles from "./home.scss?inline";
 import { LangContext } from '~/context/lang';
 import { LuDownload } from '~/components/icons/Lucide';
+import Api from '~/services/api';
+import type { Post } from '~/interfaces/posts';
+
+export const useLatestPosts = routeLoader$(async () => {
+  let latestPosts: Post[] = [];
+  let status: "success" | "error" = "error";
+  const api = new Api();
+  
+  try {
+    const { posts } = await api.getAllPosts({page: 1, perPage: 15, showContent: false});
+    latestPosts = posts;
+    status = "success";
+  } catch (err) {
+    status = "error";
+    console.error(err)
+  }  
+
+  return {posts: latestPosts, status};
+});
 
 export default component$(() => {
   useStylesScoped$(homeStyles);
+  const nav = useNavigate();
   const lang = useContext(LangContext);
-
+  const latestPosts = useLatestPosts();
+  
   return (
     <main id="home">
       <section id="hero">
@@ -37,6 +58,34 @@ export default component$(() => {
             { lang.content.home.about.content.map((str, i) => <p key={i} dangerouslySetInnerHTML={str} />) }
           </div>
         </div>
+      </section>
+
+      <section id="blog">
+        <h1> { lang.content.home.blog.title } </h1>
+        <p> { lang.content.home.blog.subtitle } </p>
+
+        {/* POSTS LOADED */}
+        { latestPosts.value.status === "success" && 
+          <div class="content">
+            {latestPosts.value.posts.map((post, key) => (
+              <article key={key}>
+                <header onClick$={() => nav("/blog/post/" + post.id)}>{ post.title }</header>
+                <footer> { post.date.toLocaleDateString() } </footer>
+              </article>
+            ))}
+
+            <div class="btn" onClick$={() => nav("/blog")}>
+              Ver todos
+            </div>
+          </div>
+        }
+        
+        {/* POSTS ERROR */}
+        { latestPosts.value.status === "error" && 
+          <div class="error">
+            { lang.content.home.blog.error }
+          </div>
+        }
       </section>
     </main>
   );

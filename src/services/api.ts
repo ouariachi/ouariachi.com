@@ -1,16 +1,14 @@
-import { ApiPostParams, ApiResult } from "../interfaces/api";
-import { Post } from "../interfaces/posts";
+import type { ApiPostParams, ApiResult } from "../interfaces/api";
+import type { Post } from "../interfaces/posts";
 
-type AllPostsPromiseResponse = {posts: Post[], pages_left?: number}
+type AllPostsResponse = {posts: Post[], pages_left?: number};
 
 export default class Api {
-  protected API_BASE_URL =  
-    window.location.hostname === "localhost" ? 
-      "http://127.0.1.1": // localhost api
-      "https://api.ouariachi.com";
+  protected API_BASE_URL = "https://api.ouariachi.com";
+  // protected API_BASE_URL = "http://127.0.1.1";
 
-  getAllPosts(params?: ApiPostParams): Promise<AllPostsPromiseResponse> {
-    let url = this.API_BASE_URL +  "/posts/?" + 
+  getAllPosts(params?: ApiPostParams): Promise<AllPostsResponse> {
+    const url = this.API_BASE_URL +  "/posts/?" + 
       (params?.showContent ? "content=1" : "content") +
       (params?.contentLang ? `&contentLang=${params.contentLang}` : "" ) +
       (params?.reponseType ? `&reponseType=${params.reponseType}` : "") +
@@ -19,7 +17,7 @@ export default class Api {
       (params?.page ? `&page=${params.page}` : "1") +
       (params?.perPage ? `&per_page=${params.perPage}` : "10");
 
-    return new Promise<AllPostsPromiseResponse>(async (resolve, reject) => {
+    return new Promise<AllPostsResponse>((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
         .then((data: ApiResult) => {
@@ -45,12 +43,12 @@ export default class Api {
   }
 
   getPost(id: number, params?: ApiPostParams): Promise<Post> {
-    let url = this.API_BASE_URL +  `/posts/${id}?` + 
-    (params?.showContent ? "content=1" : "content") +
-    (params?.contentLang ? `&contentLang=${params?.contentLang}` : "" ) +
-    (params?.reponseType ? `&reponseType=${params?.reponseType}` : "");
+    const url = this.API_BASE_URL +  `/posts/${id}?` + 
+      (params?.showContent ? "content=1" : "content") +
+      (params?.contentLang ? `&contentLang=${params?.contentLang}` : "" ) +
+      (params?.reponseType ? `&reponseType=${params?.reponseType}` : "");
 
-    return new Promise<Post>(async (resolve, reject) => {
+    return new Promise<Post>((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
         .then(data => resolve(data))

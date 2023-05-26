@@ -8,6 +8,11 @@ export interface LangContent {
     about: {
       title: string,
       content: string[]
+    },
+    blog: {
+      title: string,
+      subtitle: string,
+      error: string
     }
   }
 }
