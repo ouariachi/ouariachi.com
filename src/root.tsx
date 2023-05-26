@@ -83,7 +83,7 @@ export default component$(() => {
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
-        <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js" async></script>
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js" async></script>
       </head>
       <body lang="es-ES">
         <RouterOutlet />
