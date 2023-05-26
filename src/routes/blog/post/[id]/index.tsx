@@ -1,5 +1,5 @@
-import { component$, useSignal, useStylesScoped$, useVisibleTask$ } from '@builder.io/qwik';
-import { type DocumentHead, useLocation, routeLoader$ } from '@builder.io/qwik-city';
+import { component$, useStylesScoped$, useVisibleTask$ } from '@builder.io/qwik';
+import { type DocumentHead, routeLoader$ } from '@builder.io/qwik-city';
 import type { Post } from '~/interfaces/posts';
 
 import Api from '~/services/api';
