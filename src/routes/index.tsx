@@ -13,7 +13,7 @@ export const useLatestPosts = routeLoader$(async () => {
   const api = new Api();
   
   try {
-    const { posts } = await api.getAllPosts({page: 1, perPage: 5, showContent: false});
+    const { posts } = await api.getPosts({page: 1, perPage: 5, showContent: false});
     latestPosts = posts;
     status = "success";
   } catch (err) {

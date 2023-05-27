@@ -1,15 +1,15 @@
 import type { ApiPostParams, ApiResult } from "../interfaces/api";
 import type { Post } from "../interfaces/posts";
 
-type AllPostsResponse = {posts: Post[], pages_left?: number};
+type PostsResponse = {posts: Post[], pages_left?: number};
 
 export default class Api {
   protected API_BASE_URL = "https://api.ouariachi.com";
   // protected API_BASE_URL = "http://127.0.1.1";
 
-  getAllPosts(params?: ApiPostParams): Promise<AllPostsResponse> {
+  getPosts(params?: ApiPostParams): Promise<PostsResponse> {
     const url = this.API_BASE_URL +  "/posts/?" + 
-      (params?.showContent ? "content=1" : "content") +
+      (params?.showContent ? "content=1" : "content=0") +
       (params?.contentLang ? `&contentLang=${params.contentLang}` : "" ) +
       (params?.reponseType ? `&reponseType=${params.reponseType}` : "") +
       (params?.order ? `&order=${params.order}` : "") +
@@ -17,7 +17,7 @@ export default class Api {
       (params?.page ? `&page=${params.page}` : "1") +
       (params?.perPage ? `&per_page=${params.perPage}` : "10");
 
-    return new Promise<AllPostsResponse>((resolve, reject) => {
+    return new Promise<PostsResponse>((resolve, reject) => {
       fetch(url)
         .then(res => res.json())
         .then((data: ApiResult) => {

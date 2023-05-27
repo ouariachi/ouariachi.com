@@ -23,6 +23,9 @@ export interface LangContent {
       subtitle: string,
       error: string
     }
+  },
+  blog: {
+    usePostsError: string
   }
 }
 export type LangCode = "es" | "en";

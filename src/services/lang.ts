@@ -28,6 +28,9 @@ export const Es: LangContent = {
       subtitle: "Mis últimas publicaciones. (Solo en español)",
       error: "¡Ups! No se han podido cargar las últimas publicaciones."
     }
+  },
+  blog: {
+    usePostsError: "¡Ups! No se han podido cargar las publicaciones."
   }
 };
 
@@ -59,5 +62,8 @@ export const En: LangContent = {
       subtitle: "My latest posts. (Spanish only)",
       error: "Ups! The latest posts couldn't be loaded."
     }
+  },
+  blog: {
+    usePostsError: "Ups! The posts couldn't be loaded."
   }
 };
