@@ -6,15 +6,26 @@
   height: 35px;
 
   display: grid;
-  grid-template-columns: max-content max-content;
+  grid-template-columns: max-content 1fr max-content;
   justify-content: space-between;
   align-items: center;
 
+  .brand {
+    font-size: 22px;
+    font-weight: 900;
+    cursor: pointer;
+  }
+
   .links {
-    .brand {
-      font-size: 22px;
-      font-weight: 900;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+    span {
       cursor: pointer;
+      &:hover {
+        color: var(--neon-purple-3);
+      }
     }
   }
 

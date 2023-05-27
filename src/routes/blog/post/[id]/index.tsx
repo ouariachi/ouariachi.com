@@ -11,7 +11,6 @@ export const usePost = routeLoader$(async (req) => {
   let post: Post | undefined;
   let status: "loading" | "error" | "success" = "loading";
 
-
   try {
     post = await api.getPost(Number(id), {showContent: true});
     status = "success";
@@ -19,15 +18,12 @@ export const usePost = routeLoader$(async (req) => {
     console.error(err);
     status = "error";
   }
-
-
   return { post, status };
 });
 
 export default component$(() => {
   useStylesScoped$(styles)
   const postData = usePost();
-
 
   useVisibleTask$(({ track }) => {
     track(() => postData.value);

@@ -1,4 +1,13 @@
 export interface LangContent {
+  header: {
+    links: {
+      about: string,
+      blog: string,
+      contact: string, 
+      home: string,
+      portfolio: string
+    }
+  },
   home: {
     hero: {
       title: string,

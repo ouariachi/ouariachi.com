@@ -1,6 +1,15 @@
 import type { LangContent } from "~/interfaces/lang";
 
 export const Es: LangContent = {
+  header: {
+    links: {
+      about: "Sobre mí",
+      blog: "Blog",
+      contact: "Contacto",
+      home: "Inicio",
+      portfolio: "Portafolio"
+    }
+  },
   home: {
     hero: {
       title: "¡Hola 👋! Soy Mohamed.",
@@ -23,6 +32,15 @@ export const Es: LangContent = {
 };
 
 export const En: LangContent = {
+  header: {
+    links: {
+      about: "About me",
+      blog: "Blog",
+      contact: "Contact",
+      home: "Home",
+      portfolio: "Portfolio"
+    }
+  },
   home: {
     hero: {
       title: "Hi 👋! I'm Mohamed.",

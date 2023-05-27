@@ -19,6 +19,7 @@ export default component$(() => {
     theme.value = theme.value === "dark" ? "light" : "dark";
     localStorage.setItem("theme", theme.value);
   });
+
   const toggleLang = $(() => {
     lang.code = lang.code === "es" ? "en" : "es"
     localStorage.setItem("lang", lang.code);
@@ -26,8 +27,13 @@ export default component$(() => {
 
   return (
     <header id="main-header">
+      <span class="brand" onClick$={() => nav("/")}>Ouariachi</span>
       <div class="links">
-        <span class="brand" onClick$={() => nav("/")}>Ouariachi</span>
+        <span onClick$={() => nav("/")}>{ lang.content.header.links.home }</span>
+        <span onClick$={() => nav("/portfolio")}>{ lang.content.header.links.portfolio }</span>
+        <span onClick$={() => nav("/blog")}>{ lang.content.header.links.blog }</span>
+        <span onClick$={() => nav("/about")}>{ lang.content.header.links.about }</span>
+        <span onClick$={() => nav("/contact")}>{ lang.content.header.links.contact }</span>
       </div>
       <div class="buttons">
         <div class="btn theme" onClick$={toggleTheme}>
