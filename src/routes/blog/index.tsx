@@ -12,8 +12,7 @@ export const usePosts = routeAction$(() => {
 export default component$(() => {
   useStylesScoped$(styles);
   const posts = usePosts();
-  posts.submit
-  posts.value?.test
+  posts.submit()
 
   useVisibleTask$(({ track }) => {
     track(() => posts.value);
