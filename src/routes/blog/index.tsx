@@ -1,5 +1,5 @@
 import { component$, useStylesScoped$, useVisibleTask$ } from "@builder.io/qwik";
-import { routeAction$ } from "@builder.io/qwik-city";
+import { type DocumentHead, routeAction$ } from "@builder.io/qwik-city";
 
 import styles from "./blog.scss?inline";
 
@@ -12,7 +12,6 @@ export const usePosts = routeAction$(() => {
 export default component$(() => {
   useStylesScoped$(styles);
   const posts = usePosts();
-  posts.submit()
 
   useVisibleTask$(({ track }) => {
     track(() => posts.value);
@@ -22,7 +21,17 @@ export default component$(() => {
   return (
     <main id="blog">
       <h1>Últimas publicaciones</h1>
-
+      <div onClick$={() => posts.submit()}>Cargar</div>
     </main>      
   )
 });
+
+export const header: DocumentHead = {
+  title: "Blog - M. Ouariachi",
+  meta: [
+    {
+      name: "description",
+      content: "Mohamed Mohamed el Ouariachi's blog.",
+    },
+  ],
+}
