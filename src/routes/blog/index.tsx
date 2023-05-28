@@ -22,7 +22,6 @@ async function getPage(page: number) {
   }
 }
 
-
 export default component$(() => {
   useStylesScoped$(styles);
   const nav = useNavigate();

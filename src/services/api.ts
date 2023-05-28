@@ -4,8 +4,8 @@ import type { Post } from "../interfaces/posts";
 type PostsResponse = {posts: Post[], pages_left?: number};
 
 export default class Api {
-  protected API_BASE_URL = "https://api.ouariachi.com";
-  // protected API_BASE_URL = "http://127.0.1.1";
+  // protected API_BASE_URL = "https://api.ouariachi.com";
+  protected API_BASE_URL = "http://127.0.1.1";
 
   getPosts(params?: ApiPostParams): Promise<PostsResponse> {
     const url = this.API_BASE_URL +  "/posts/?" + 
@@ -14,8 +14,8 @@ export default class Api {
       (params?.reponseType ? `&reponseType=${params.reponseType}` : "") +
       (params?.order ? `&order=${params.order}` : "") +
       (params?.direction ? `&direction=${params.direction}` : "") +
-      (params?.page ? `&page=${params.page}` : "1") +
-      (params?.perPage ? `&per_page=${params.perPage}` : "10");
+      (params?.page ? `&page=${params.page}` : "") +
+      (params?.perPage ? `&per_page=${params.perPage}` : "");
 
     return new Promise<PostsResponse>((resolve, reject) => {
       fetch(url)

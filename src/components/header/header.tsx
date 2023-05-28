@@ -1,5 +1,5 @@
 import { $, component$, useContext, useStylesScoped$ } from "@builder.io/qwik";
-import { useNavigate } from "@builder.io/qwik-city";
+import { Link, useNavigate } from "@builder.io/qwik-city";
 
 import { ThemeContext } from "~/context/theme";
 import { LangContext } from "~/context/lang";
@@ -29,11 +29,11 @@ export default component$(() => {
     <header id="main-header">
       <span class="brand" onClick$={() => nav("/")}>Ouariachi</span>
       <div class="links">
-        <span onClick$={() => nav("/")}>{ lang.content.header.links.home }</span>
-        <span onClick$={() => nav("/portfolio")}>{ lang.content.header.links.portfolio }</span>
-        <span onClick$={() => nav("/blog")}>{ lang.content.header.links.blog }</span>
-        <span onClick$={() => nav("/about")}>{ lang.content.header.links.about }</span>
-        <span onClick$={() => nav("/contact")}>{ lang.content.header.links.contact }</span>
+        <span><Link href="/">{ lang.content.header.links.home }</Link></span>
+        <span><Link href="/portfolio">{ lang.content.header.links.portfolio }</Link></span>
+        <span><Link href="/blog">{ lang.content.header.links.blog }</Link></span>
+        <span><Link href="/#about">{ lang.content.header.links.about }</Link></span>
+        <span><Link href="/#contact">{ lang.content.header.links.contact }</Link></span>
       </div>
       <div class="buttons">
         <div class="btn theme" onClick$={toggleTheme}>

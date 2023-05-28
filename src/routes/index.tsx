@@ -1,5 +1,5 @@
-import { component$, useContext, useStylesScoped$} from '@builder.io/qwik';
-import { type DocumentHead, routeLoader$, useNavigate } from '@builder.io/qwik-city';
+import { component$, useContext, useSignal, useStylesScoped$, useVisibleTask$} from '@builder.io/qwik';
+import { type DocumentHead, useNavigate } from '@builder.io/qwik-city';
 
 import homeStyles from "./home.scss?inline";
 import { LangContext } from '~/context/lang';
@@ -7,28 +7,39 @@ import { LuDownload } from '~/components/icons/Lucide';
 import Api from '~/services/api';
 import type { Post } from '~/interfaces/posts';
 
-export const useLatestPosts = routeLoader$(async () => {
-  let latestPosts: Post[] = [];
-  let status: "success" | "error" = "error";
+async function getLatestPosts() {
   const api = new Api();
-  
   try {
-    const { posts } = await api.getPosts({page: 1, perPage: 5, showContent: false});
-    latestPosts = posts;
-    status = "success";
-  } catch (err) {
-    status = "error";
-    console.error(err)
-  }  
-
-  return {posts: latestPosts, status};
-});
+    const { posts } = await api.getPosts({ 
+      page: 1, 
+      perPage: 5, 
+      order: "date", 
+      direction: "desc"
+    });
+    return { posts, success: true };
+  } catch (error) {
+    return { success: false, error}
+  }
+}
 
 export default component$(() => {
   useStylesScoped$(homeStyles);
   const nav = useNavigate();
   const lang = useContext(LangContext);
-  const latestPosts = useLatestPosts();
+  const latestPosts = useSignal<Post[]>([]);
+  const latestPostsStatus = useSignal<"loading" | "success" | "error">("loading");
+
+  useVisibleTask$(() => {
+    getLatestPosts()
+      .then(({ success, posts}) => {
+        if(success && posts) {
+          latestPosts.value = posts;
+          latestPostsStatus.value = "success";
+        } else {
+          latestPostsStatus.value = "error";
+        }
+      });
+  });
   
   return (
     <main id="home">
@@ -65,9 +76,9 @@ export default component$(() => {
         <p> { lang.content.home.blog.subtitle } </p>
 
         {/* POSTS LOADED */}
-        { latestPosts.value.status === "success" && 
+        { latestPostsStatus.value === "success" && 
           <div class="content">
-            {latestPosts.value.posts.map((post, key) => (
+            {latestPosts.value.map((post, key) => (
               <article key={key}>
                 <header onClick$={() => nav("/blog/post/" + post.id)}>{ post.title }</header>
                 <footer> { post.date.toLocaleDateString() } </footer>
@@ -80,8 +91,15 @@ export default component$(() => {
           </div>
         }
         
+        {/* POSTS LOADING */}
+        { latestPostsStatus.value=== "loading" && 
+          <div class="error">
+            { lang.content.home.blog.error }
+          </div>
+        }
+
         {/* POSTS ERROR */}
-        { latestPosts.value.status === "error" && 
+        { latestPostsStatus.value=== "error" && 
           <div class="error">
             { lang.content.home.blog.error }
           </div>

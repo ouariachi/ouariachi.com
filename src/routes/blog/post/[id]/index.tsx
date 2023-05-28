@@ -28,12 +28,6 @@ export default component$(() => {
   useVisibleTask$(({ track }) => {
     track(() => postData.value);
     
-    if(postData.value.status === "success") {
-      document.title = `${postData.value.post?.title} - M. Ouariachi`;
-      if(postData.value.post?.description)
-        document.querySelector("meta[name=description]")?.setAttribute("content", postData.value.post?.description);
-    } 
-
     const script = document.createElement("script");
     script.innerHTML = `
       document.querySelectorAll('pre code').forEach((el) => {
@@ -60,12 +54,26 @@ export default component$(() => {
   )
 });
 
-export const head: DocumentHead = {
-  title: "Loading...",
-  meta: [
-    {
-      name: "description",
-      content: "Mohamed Mohamed el Ouariachi's personal website and portfolio.",
-    },
-  ],
+export const head: DocumentHead = ({ resolveValue }) => {
+  const { post, status } = resolveValue(usePost); 
+  let title = "Loading...";
+  let desc = "Loading...";
+
+  if(status === "success" && post) {
+    title = post.title;
+    desc = post.description;
+  } else {
+    title = "Error";
+    desc = "Error loading content."
+  }
+
+  return {
+    title: `${title} - M. Ouariachi`,
+    meta: [
+      {
+        name: "description",
+        content: `${desc}`,
+      },
+    ],
+  }
 };
