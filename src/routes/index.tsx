@@ -3,7 +3,7 @@ import { type DocumentHead, useNavigate } from '@builder.io/qwik-city';
 
 import homeStyles from "./home.scss?inline";
 import { LangContext } from '~/context/lang';
-import { LuDownload } from '~/components/icons/Lucide';
+import { LuDownload, LuLoader } from '~/components/icons/Lucide';
 import Api from '~/services/api';
 import type { Post } from '~/interfaces/posts';
 
@@ -92,14 +92,12 @@ export default component$(() => {
         }
         
         {/* POSTS LOADING */}
-        { latestPostsStatus.value=== "loading" && 
-          <div class="error">
-            { lang.content.home.blog.error }
-          </div>
+        { latestPostsStatus.value === "loading" && 
+          <div class="loading"> <LuLoader /> </div>
         }
 
         {/* POSTS ERROR */}
-        { latestPostsStatus.value=== "error" && 
+        { latestPostsStatus.value === "error" && 
           <div class="error">
             { lang.content.home.blog.error }
           </div>

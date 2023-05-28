@@ -126,4 +126,21 @@
       color: red;
     }
   }
+
+  .loading {
+    text-align: center;
+    
+    :global(svg) {
+      scale: 1.5;
+      animation: spin 3s infinite cubic-bezier(0, 0, 1, 1);
+      @keyframes spin {
+        from { 
+          transform: rotateZ(0deg); 
+        }
+        to {
+          transform: rotateZ(360deg);
+        }
+      }
+    }
+  }
 }
