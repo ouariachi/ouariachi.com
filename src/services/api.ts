@@ -4,8 +4,8 @@ import type { Post } from "../interfaces/posts";
 type PostsResponse = {posts: Post[], pages_left?: number};
 
 export default class Api {
-  // protected API_BASE_URL = "https://api.ouariachi.com";
-  protected API_BASE_URL = "http://127.0.1.1";
+  protected API_BASE_URL = "https://api.ouariachi.com";
+  // protected API_BASE_URL = "http://127.0.1.1";
 
   getPosts(params?: ApiPostParams): Promise<PostsResponse> {
     const url = this.API_BASE_URL +  "/posts/?" + 
