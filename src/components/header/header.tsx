@@ -32,8 +32,8 @@ export default component$(() => {
         <span><Link href="/">{ lang.content.header.links.home }</Link></span>
         <span><Link href="/portfolio">{ lang.content.header.links.portfolio }</Link></span>
         <span><Link href="/blog">{ lang.content.header.links.blog }</Link></span>
-        <span><Link href="/#about">{ lang.content.header.links.about }</Link></span>
-        <span><Link href="/#contact">{ lang.content.header.links.contact }</Link></span>
+        <span><a href="/#about">{ lang.content.header.links.about }</a></span>
+        <span><a href="/#contact">{ lang.content.header.links.contact }</a></span>
       </div>
       <div class="buttons">
         <div class="btn theme" onClick$={toggleTheme}>
