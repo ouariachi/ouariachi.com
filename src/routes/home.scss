@@ -127,6 +127,41 @@
     }
   }
 
+  #portfolio {
+    .projects {
+      display: flex;  
+      gap: 2rem;
+
+      article {
+        padding: 1rem;
+        box-sizing: border-box;
+        border: 1px solid var(--text);
+        border-radius: 10px;
+        
+        header {
+          h3 {
+            margin-top: 0;
+          }
+        }
+        
+        footer {
+          margin-top: 1rem;
+          display: flex;
+          gap: 10px;
+          
+          a {
+            cursor: pointer;
+            color: var(--text);
+
+            &:hover {
+              color: var(--neon-purple-3);
+            }
+          }
+        }
+      }
+    }
+  }
+
   .loading {
     text-align: center;
     

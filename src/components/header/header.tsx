@@ -30,7 +30,7 @@ export default component$(() => {
       <span class="brand" onClick$={() => nav("/")}>Ouariachi</span>
       <div class="links">
         <span><Link href="/">{ lang.content.header.links.home }</Link></span>
-        <span><Link href="/portfolio">{ lang.content.header.links.portfolio }</Link></span>
+        <span><a href="/#portfolio">{ lang.content.header.links.portfolio }</a></span>
         <span><Link href="/blog">{ lang.content.header.links.blog }</Link></span>
         <span><a href="/#about">{ lang.content.header.links.about }</a></span>
         <span><a href="/#contact">{ lang.content.header.links.contact }</a></span>

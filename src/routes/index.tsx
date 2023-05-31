@@ -1,9 +1,10 @@
+/* eslint-disable qwik/jsx-img */
 import { component$, useContext, useSignal, useStylesScoped$, useVisibleTask$} from '@builder.io/qwik';
 import { type DocumentHead, useNavigate } from '@builder.io/qwik-city';
 
 import homeStyles from "./home.scss?inline";
 import { LangContext } from '~/context/lang';
-import { LuDownload, LuLoader } from '~/components/icons/Lucide';
+import { LuDownload, LuEye, LuGithub, LuLoader } from '~/components/icons/Lucide';
 import Api from '~/services/api';
 import type { Post } from '~/interfaces/posts';
 
@@ -102,6 +103,26 @@ export default component$(() => {
             { lang.content.home.blog.error }
           </div>
         }
+      </section>
+
+      <section id="portfolio">
+        <h1>{ lang.content.portfolio.title }</h1>
+        <div class="projects">
+          <article>
+            <header>
+              <h3> { lang.content.portfolio.projects.ticTacToe.title } </h3>
+            </header>
+            { lang.content.portfolio.projects.ticTacToe.description }
+            <footer>
+              <a href="https://github.com/ouariachi/tic-tac-toe" target="_blank" rel="noopener noreferrer nofollow" title='Source code on GitHub'>
+                <LuGithub />
+              </a>
+              <a href="https://tic-tac-toe-ouariachi.pages.dev/" target="_blank" rel="noopener noreferrer nofollow" title='Preview'>
+                <LuEye />
+              </a>
+            </footer>
+          </article>
+        </div>
       </section>
     </main>
   );

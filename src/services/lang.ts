@@ -31,6 +31,15 @@ export const Es: LangContent = {
   },
   blog: {
     usePostsError: "¡Ups! No se han podido cargar las publicaciones."
+  },
+  portfolio: {
+    title: "Mis proyectos",
+    projects: {
+      ticTacToe: {
+        title: "Tres en raya",
+        description: "Una app simple para jugar al tres en raya"
+      }
+    }
   }
 };
 
@@ -65,5 +74,14 @@ export const En: LangContent = {
   },
   blog: {
     usePostsError: "Ups! The posts couldn't be loaded."
+  },
+  portfolio: {
+    title: "My projecs",
+    projects: {
+      ticTacToe: {
+        title: "Tic-Tac-Toe",
+        description: "An simple app for playing tic-tac-toe"
+      }
+    }
   }
 };

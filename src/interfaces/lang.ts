@@ -1,3 +1,8 @@
+export interface Project {
+  title: string
+  description: string
+}
+
 export interface LangContent {
   header: {
     links: {
@@ -26,6 +31,12 @@ export interface LangContent {
   },
   blog: {
     usePostsError: string
+  },
+  portfolio: {
+    title: string
+    projects: {
+      ticTacToe: Project
+    }
   }
 }
 export type LangCode = "es" | "en";
