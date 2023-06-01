@@ -35,7 +35,8 @@ export interface LangContent {
   portfolio: {
     title: string
     projects: {
-      ticTacToe: Project
+      ticTacToe: Project,
+      ouariachi: Project
     }
   }
 }

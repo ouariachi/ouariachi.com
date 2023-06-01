@@ -122,6 +122,21 @@ export default component$(() => {
               </a>
             </footer>
           </article>
+
+          <article>
+            <header>
+              <h3> { lang.content.portfolio.projects.ouariachi.title } </h3> 
+            </header>
+            { lang.content.portfolio.projects.ouariachi.description }
+            <footer>
+              <a href="https://github.com/ouariachi/ouariachi.com" target="_blank" rel="noopener noreferrer nofollow" title='Source code on GitHub'>
+                <LuGithub />
+              </a>
+              <a href="/" target="_blank" rel="noopener noreferrer nofollow" title='Preview'>
+                <LuEye />
+              </a>
+            </footer>
+          </article>
         </div>
       </section>
     </main>

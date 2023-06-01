@@ -37,7 +37,11 @@ export const Es: LangContent = {
     projects: {
       ticTacToe: {
         title: "Tres en raya",
-        description: "Una app simple para jugar al tres en raya"
+        description: "Una app simple para jugar al tres en raya hecho en React."
+      },
+      ouariachi: {
+        title: "Ouariachi.com",
+        description: "Esta página web. Hecha en Qwik (Qwik City)."
       }
     }
   }
@@ -80,7 +84,11 @@ export const En: LangContent = {
     projects: {
       ticTacToe: {
         title: "Tic-Tac-Toe",
-        description: "An simple app for playing tic-tac-toe"
+        description: "An simple app for playing tic-tac-toe made with React."
+      },
+      ouariachi: {
+        title: "Ouariachi.com",
+        description: "This web page. Made in Qwik (Qwik City)."
       }
     }
   }
