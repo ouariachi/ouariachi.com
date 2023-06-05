@@ -36,7 +36,8 @@ export interface LangContent {
     title: string
     projects: {
       ticTacToe: Project,
-      ouariachi: Project
+      ouariachi: Project,
+      authApi: Project
     }
   }
 }

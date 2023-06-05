@@ -42,6 +42,10 @@ export const Es: LangContent = {
       ouariachi: {
         title: "Ouariachi.com",
         description: "Esta página web. Hecha en Qwik (Qwik City)."
+      },
+      authApi: {
+        title: "Auth Api",
+        description: "Una API sencilla con la que los usuarios pueden registrarse y autorizarse"
       }
     }
   }
@@ -89,6 +93,10 @@ export const En: LangContent = {
       ouariachi: {
         title: "Ouariachi.com",
         description: "This web page. Made in Qwik (Qwik City)."
+      },
+      authApi: {
+        title: "Auth Api",
+        description: "A simple API with which users can register and authorize"
       }
     }
   }

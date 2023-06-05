@@ -137,6 +137,21 @@ export default component$(() => {
               </a>
             </footer>
           </article>
+          
+          <article>
+            <header>
+              <h3> { lang.content.portfolio.projects.authApi.title } </h3> 
+            </header>
+            { lang.content.portfolio.projects.authApi.description }
+            <footer>
+              <a href="https://github.com/ouariachi/auth-api" target="_blank" rel="noopener noreferrer nofollow" title='Source code on GitHub'>
+                <LuGithub />
+              </a>
+              <a href="https://tan-clever-crane.cyclic.app" target="_blank" rel="noopener noreferrer nofollow" title='Preview'>
+                <LuEye />
+              </a>
+            </footer>
+          </article>
         </div>
       </section>
     </main>
