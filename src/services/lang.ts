@@ -45,7 +45,7 @@ export const Es: LangContent = {
       },
       authApi: {
         title: "Auth Api",
-        description: "Una API sencilla con la que los usuarios pueden registrarse y autorizarse"
+        description: "Una API sencilla con la que los usuarios pueden registrarse y autorizarse."
       }
     }
   }
@@ -96,7 +96,7 @@ export const En: LangContent = {
       },
       authApi: {
         title: "Auth Api",
-        description: "A simple API with which users can register and authorize"
+        description: "A simple API with which users can register and authorize."
       }
     }
   }

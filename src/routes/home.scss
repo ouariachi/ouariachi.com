@@ -137,7 +137,8 @@
         box-sizing: border-box;
         border: 1px solid var(--text);
         border-radius: 10px;
-        
+        background: var(--background-contrast);
+
         header {
           h3 {
             margin-top: 0;
