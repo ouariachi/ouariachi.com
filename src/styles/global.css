@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-background: rgb(225, 225, 225);
+  --color-text: rgb(0, 0, 0);
+  --color-primary: rgb(0, 0, 0);
+  --color-secondary: rgb(0, 0, 0);
+
+  --font-synonym: 'Synonym', sans-serif;
+  --font-amulya: 'Amulya', sans-serif;
+
+  --animate-logo-cloud: logo-cloud 30s linear infinite;
+
+  @keyframes logo-cloud {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(100% - 4rem)); }
+  }
+}
+
+@layer theme {
+  .dark {
+    --color-background: rgb(0, 0, 0);
+    --color-text: rgb(255, 255, 255);
+    --color-primary: rgb(255, 255, 255);
+    --color-secondary: rgb(255, 255, 255);
+  }
+}
+
+#cursor {
+  position: fixed;
+  pointer-events: none;
+  border: 8px solid var(--color-text);
+  border-radius: 100%;
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+  transition: width 0.2s, height 0.2s, border-width 0.2s;
+  z-index: 50;
+  opacity: 0;
+  user-select: none;
+}
+
+#cursor img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: none;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
