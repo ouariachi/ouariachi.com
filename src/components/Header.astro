@@ -16,6 +16,12 @@ const t = useTranslations(currentLocale);
 const route = getRouteFromUrl(Astro.url);
 const newLocale = currentLocale === "es" ? "en" : "es";
 const newRoute = `/${newLocale}/${route ?? ""}`;
+
+const navLinks = [
+  { href: `/${currentLocale}/`, text: t("nav.about"), active: false },
+  { href: `/${currentLocale}/blog`, text: t("nav.blog"), active: false },
+  { href: `/${currentLocale}/contact`, text: t("nav.contact"), active: false },
+];
 ---
 
 <header>
@@ -44,7 +50,7 @@ const newRoute = `/${newLocale}/${route ?? ""}`;
 
     <div class="flex items-end-safe justify-between">
       <div
-        class="flex flex-col items-center justify-center text-center md:items-start md:justify-start md:text-left gap-y-2"
+        class="flex flex-col items-center justify-center text-center mx-auto md:mx-0 md:items-start md:justify-start md:text-left gap-y-2"
       >
         <h1 class="text-4xl font-bold mt-10 font-amulya">
           Mohamed el Ouariachi
@@ -65,7 +71,7 @@ const newRoute = `/${newLocale}/${route ?? ""}`;
           >
             <Linkedin width={24} height={24} />
           </a>
-          <a href="mailto:contacto@ouariachi.com" aria-label="Email">
+          <a href="mailto:mohamed@ouariachi.com" aria-label="Email">
             <Mail width={24} height={24} />
           </a>
         </div>
@@ -100,6 +106,28 @@ const newRoute = `/${newLocale}/${route ?? ""}`;
       </div>
     </div>
   </div>
+
+  <nav class="flex items-center justify-center md:justify-start mt-5">
+    <ul class="flex gap-x-2">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={cn(
+                "text-text/80 hover:text-text rounded-sm px-2 py-1 transition-all",
+                link.href === `/${currentLocale}/${route}`
+                  ? "bg-text/10 !text-text font-bold"
+                  : "",
+              )}
+            >
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </header>
 
 <script is:inline>
