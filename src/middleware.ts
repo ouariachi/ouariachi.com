@@ -6,6 +6,6 @@ export const onRequest = defineMiddleware((ctx, next) => {
   if (pathHasLocale(pathname)) {
     return next();
   } else {
-    return redirectToDefaultLocale(ctx, 302);
+    return redirectToDefaultLocale(ctx, 301);
   }
 });
