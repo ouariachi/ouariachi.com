@@ -10,6 +10,9 @@ export default defineConfig({
     routing: "manual"
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    preview: {
+      allowedHosts: ['ouariachi.com']
+    }
   }
 });
