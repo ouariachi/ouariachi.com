@@ -11,6 +11,9 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: ['ouariachi.com']
+    },
     preview: {
       allowedHosts: ['ouariachi.com']
     }
