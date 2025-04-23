@@ -13,7 +13,19 @@ export const ui = {
     "home.occupation": "Ingeniero de Software",
     "home.changeLanguage": "Cambiar idioma",
     "home.imageAlt": "Mohamed en estilo de cartoon",
-    "home.about": "Desarrollador enfocado en crear soluciones eficientes y escalables. Me apasiona el código limpio y construir herramientas que faciliten el trabajo."
+    "home.about": "Desarrollador enfocado en crear soluciones eficientes y escalables. Me apasiona el código limpio y construir herramientas que faciliten el trabajo.",
+    "home.about.experience": "Experiencia",
+
+    // timeline 
+    "timeline.cta": "Contacta conmigo",
+
+    "timeline.0.title": "Buscando empleo",
+    "timeline.0.description": "En búsqueda de mi primera oportunidad laboral en el área del desarrollo web, con ganas de seguir aprendiendo y creciendo profesionalmente.",
+    "timeline.0.date": "Actualmente",
+
+    "timeline.1.title": "Prácticas de Desarrollo de Aplicaciones Web",
+    "timeline.1.description": "Realicé las prácticas del Grado Superior de DAW en la empresa DBC.",
+    "timeline.1.date": "Fabrero 2025 - Marzo 2025",
   },
   en: {
     "nav.about": "About me",
@@ -22,6 +34,18 @@ export const ui = {
     "home.occupation": "Software Engineer",
     "home.changeLanguage": "Change language",
     "home.imageAlt": "Mohamed in cartoon style",
-    "home.about": "Developer focused on creating efficient, scalable solutions. I’m passionate about clean code and building tools that make life easier."
+    "home.about": "Developer focused on creating efficient, scalable solutions. I’m passionate about clean code and building tools that make life easier.",
+    "home.about.experience": "Experience",
+
+    // timeline
+    "timeline.cta": "Contact me",
+
+    "timeline.0.title": "Job Seeking",
+    "timeline.0.description": "Actively looking for my first opportunity in the web development field, eager to learn and grow professionally.",
+    "timeline.0.date": "Present",
+
+    "timeline.1.title": "Web Application Development Internship",
+    "timeline.1.description": "I did my internship for my DAW Degree at DBC company.",
+    "timeline.1.date": "February 2022 - March 2022",
   }
 };

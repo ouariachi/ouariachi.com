@@ -24,13 +24,14 @@ const navLinks = [
 ];
 ---
 
-<header>
+<header transition:name="header">
   <div class="min-h-64 border-b border-text/10 pb-5">
     <video
       autoplay
       muted
       loop
       class="absolute top-4 left-1/2 -translate-x-1/2 -z-50 opacity-40 dark:opacity-20 h-[278px] w-auto max-w-full object-cover !invert dark:!invert-0"
+      transition:persist
     >
       <source src="/mohamed_waves.webm" type="video/webm" />
     </video>
@@ -45,6 +46,7 @@ const navLinks = [
         height={160}
         alt={t("home.imageAlt")}
         class="md:grayscale transition-all duration-300 ease-in-out md:cursor-none select-none openCursor"
+        transition:persist
       />
     </div>
 
@@ -117,7 +119,7 @@ const navLinks = [
               class={cn(
                 "text-text/80 hover:text-text rounded-sm px-2 py-1 transition-all",
                 link.href === `/${currentLocale}/${route}`
-                  ? "bg-text/10 !text-text font-bold"
+                  ? "bg-text !text-background font-bold"
                   : "",
               )}
             >

@@ -2,13 +2,14 @@
 import "../styles/global.css";
 import { getLangFromUrl } from "../i18n/utils";
 import Header from "../components/Header.astro";
+import { ClientRouter } from "astro:transitions";
 
 const lang = getLangFromUrl(Astro.url);
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={lang} class="dark mobile">
+<html lang={lang} class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -23,6 +24,8 @@ const { title } = Astro.props;
 			href="https://api.fontshare.com/v2/css?f[]=synonym@400&f[]=amulya@700&display=swap"
 			rel="stylesheet"
 		/>
+
+		<ClientRouter />
 	</head>
 
 	<body class="bg-background text-text transition-all font-synonym">
@@ -31,7 +34,7 @@ const { title } = Astro.props;
 			<slot />
 		</main>
 
-		<div id="cursor" class="hidden md:block">
+		<div id="cursor" class="hidden md:block" transition:persist>
 			<img id="cursor-img" src="" alt="" />
 		</div>
 	</body>
@@ -47,21 +50,23 @@ const { title } = Astro.props;
 </style>
 
 <script>
-	const storedTheme = localStorage.getItem("theme");
-	if (storedTheme === "dark") {
-		document.documentElement.classList.add("dark");
-	} else if (storedTheme === "light") {
-		document.documentElement.classList.remove("dark");
-	} else {
-		const userPrefersDark = window.matchMedia(
-			"(prefers-color-scheme: dark)",
-		).matches;
-		if (userPrefersDark) {
+	document.addEventListener("astro:page-load", () => {
+		const storedTheme = localStorage.getItem("theme");
+		if (storedTheme === "dark") {
 			document.documentElement.classList.add("dark");
-		} else {
+		} else if (storedTheme === "light") {
 			document.documentElement.classList.remove("dark");
+		} else {
+			const userPrefersDark = window.matchMedia(
+				"(prefers-color-scheme: dark)",
+			).matches;
+			if (userPrefersDark) {
+				document.documentElement.classList.add("dark");
+			} else {
+				document.documentElement.classList.remove("dark");
+			}
 		}
-	}
+	})
 </script>
 
 <script is:inline>
