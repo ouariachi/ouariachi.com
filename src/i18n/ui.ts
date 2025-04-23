@@ -10,11 +10,13 @@ export const ui = {
     "nav.about": "Sobre mí",
     "nav.contact": "Contacto",
     "nav.blog": "Blog",
+
     "home.occupation": "Ingeniero de Software",
     "home.changeLanguage": "Cambiar idioma",
     "home.imageAlt": "Mohamed en estilo de cartoon",
     "home.about": "Desarrollador enfocado en crear soluciones eficientes y escalables. Me apasiona el código limpio y construir herramientas que faciliten el trabajo.",
     "home.about.experience": "Experiencia",
+    "home.cv": "Mi currículum",
 
     // timeline 
     "timeline.cta": "Contacta conmigo",
@@ -36,9 +38,10 @@ export const ui = {
     "home.imageAlt": "Mohamed in cartoon style",
     "home.about": "Developer focused on creating efficient, scalable solutions. I’m passionate about clean code and building tools that make life easier.",
     "home.about.experience": "Experience",
+    "home.cv": "My resume",
 
     // timeline
-    "timeline.cta": "Contact me",
+    "timeline.cta": "Get in touch",
 
     "timeline.0.title": "Job Seeking",
     "timeline.0.description": "Actively looking for my first opportunity in the web development field, eager to learn and grow professionally.",

@@ -37,7 +37,7 @@ const navLinks = [
     </video>
 
     <div
-      class="mt-16 w-[160px] mx-auto md:mx-0 h-[160px] border-2 border-text bg-text rounded-xl overflow-hidden"
+      class="mt-10 w-[130px] mx-auto md:mx-0 h-[130px] border-2 border-text bg-text rounded-xl overflow-hidden"
     >
       <Image
         id="image-profile"
@@ -54,7 +54,7 @@ const navLinks = [
       <div
         class="flex flex-col items-center justify-center text-center mx-auto md:mx-0 md:items-start md:justify-start md:text-left gap-y-2"
       >
-        <h1 class="text-4xl font-bold mt-10 font-amulya">
+        <h1 class="text-2xl font-bold mt-10 font-amulya">
           Mohamed el Ouariachi
         </h1>
         <h3 class="text-xl font-semibold text-text/80 mb-2 font-amulya">
@@ -117,7 +117,7 @@ const navLinks = [
             <a
               href={link.href}
               class={cn(
-                "text-text/80 hover:text-text rounded-sm px-2 py-1 transition-all",
+                "text-text/80 hover:text-text rounded-sm px-2 py-1 transition-all select-none",
                 link.href === `/${currentLocale}/${route}`
                   ? "bg-text !text-background font-bold"
                   : "",
