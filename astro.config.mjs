@@ -12,10 +12,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: ['ouariachi.com']
+      allowedHosts: ['ouariachi.com', 'www.ouariachi.com']
     },
     preview: {
-      allowedHosts: ['ouariachi.com']
+      allowedHosts: ['ouariachi.com', 'www.ouariachi.com']
     }
   },
 });
