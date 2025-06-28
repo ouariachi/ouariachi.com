@@ -30,7 +30,7 @@ const posts = Object.values(import.meta.glob("../../../content/posts/*/*.md", { 
         const { lang, slug } = post.frontmatter;
         return (
           <article class="p-4 border-2 border-text/20 rounded-lg hover:bg-text/5 hover:border-text/30">
-            <a href={`/${lang}/blog/${slug}`}>
+            <a href={`/${lang}/blog/post/${slug}`}>
               <h3 class="text-xl font-semibold font-amulya">{post.frontmatter.title}</h3>
             </a>
             <p class="text-text/80 text-sm">{post.frontmatter.description}</p>

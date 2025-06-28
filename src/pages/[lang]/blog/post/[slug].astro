@@ -1,9 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
-import Layout from '../../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../../../i18n/utils';
+import Layout from '../../../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
-  const posts = Object.values(import.meta.glob("../../../content/posts/*/*.md", { eager: true }));
+  const posts = Object.values(import.meta.glob("../../../../content/posts/*/*.md", { eager: true }));
   return posts.map((post: any) => {
     const { lang, slug } = post.frontmatter;
     return {
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const slug = Astro.params.slug;
-const posts = Object.values(import.meta.glob("../../../content/posts/*/*.md", { eager: true }));
+const posts = Object.values(import.meta.glob("../../../../content/posts/*/*.md", { eager: true }));
 const post: any = posts.find((post: any) => post.frontmatter.lang === lang && post.frontmatter.slug === slug);
 ---
 <Layout title={post.frontmatter.title} headerMinimal={true}>
