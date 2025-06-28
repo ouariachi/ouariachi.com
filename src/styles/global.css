@@ -128,4 +128,31 @@
     border-top: 1px solid #ddd;
     margin: 2rem 0;
   }
+
+  table {
+    width: 100%;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    
+    th {
+      background-color: #212121;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background-color: #161616;
+    }
+  }
 }
