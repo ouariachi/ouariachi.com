@@ -10,7 +10,7 @@ export function getStaticPaths() {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const posts = Object.values(import.meta.glob("../../../posts/*.md", { eager: true }));
+const posts = Object.values(import.meta.glob("../../../content/posts/*/*.md", { eager: true })).filter((post: any) => post.frontmatter.lang === lang);
 ---
 
 <Layout title={t("nav.blog")}>
@@ -22,5 +22,21 @@ const posts = Object.values(import.meta.glob("../../../posts/*.md", { eager: tru
     <h2 class="text-xl font-semibold font-amulya mt-2 text-center">
       {t("blog.empty")}
     </h2>
+  }
+
+  { posts.length > 0 &&
+    <div class="mx-auto mt-10 space-y-3">
+      {posts.map((post: any) => {
+        const { lang, slug } = post.frontmatter;
+        return (
+          <article class="p-4 border-2 border-text/20 rounded-lg hover:bg-text/5 hover:border-text/30">
+            <a href={`/${lang}/blog/${slug}`}>
+              <h3 class="text-xl font-semibold font-amulya">{post.frontmatter.title}</h3>
+            </a>
+            <p class="text-text/80 text-sm">{post.frontmatter.description}</p>
+          </article>
+        );
+      })}
+    </div>
   }
 </Layout>

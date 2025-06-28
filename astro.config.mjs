@@ -18,4 +18,10 @@ export default defineConfig({
       allowedHosts: ['ouariachi.com', 'www.ouariachi.com']
     }
   },
+  markdown: {
+    syntaxHighlight: 'shiki',
+    shikiConfig: {
+      theme: 'one-dark-pro',
+    }
+  }
 });

@@ -10,6 +10,8 @@ import Github from "./Icons/Github.astro";
 import Mail from "./Icons/Mail.astro";
 import cn from "../utils/cn";
 
+const { headerMinimal = false } = Astro.props;
+
 const currentLocale = (Astro.currentLocale as "es" | "en" | undefined) || "es";
 const t = useTranslations(currentLocale);
 
@@ -25,88 +27,103 @@ const navLinks = [
 ---
 
 <header transition:name="header">
-  <div class="min-h-64 border-b border-text/10 pb-5">
-    <video
-      autoplay
-      muted
-      loop
-      class="absolute top-4 left-1/2 -translate-x-1/2 -z-50 opacity-40 dark:opacity-20 h-[278px] w-auto max-w-full object-cover !invert dark:!invert-0"
-      transition:persist
-    >
-      <source src="/mohamed_waves.webm" type="video/webm" />
-    </video>
-
-    <div
-      class="mt-10 w-[130px] mx-auto md:mx-0 h-[130px] border-2 border-text bg-text rounded-xl overflow-hidden"
-    >
-      <Image
-        id="image-profile"
-        src="/me.webp"
-        width={160}
-        height={160}
-        alt={t("home.imageAlt")}
-        class="md:grayscale transition-all duration-300 ease-in-out md:cursor-none select-none openCursor"
+  <div 
+    class={cn(
+      "min-h-64 border-b border-text/10 pb-5",
+      headerMinimal ? "!min-h-0 !border-none !pb-0" : "",
+    )}
+  >
+    { !headerMinimal &&
+      <video
+        autoplay
+        muted
+        loop
+        class="absolute top-4 left-1/2 -translate-x-1/2 -z-50 opacity-40 dark:opacity-20 h-[278px] w-auto max-w-full object-cover !invert dark:!invert-0"
         transition:persist
-      />
-    </div>
-
-    <div class="flex items-end-safe justify-between">
-      <div
-        class="flex flex-col items-center justify-center text-center mx-auto md:mx-0 md:items-start md:justify-start md:text-left gap-y-2"
       >
-        <h1 class="text-2xl font-bold mt-10 font-amulya">
-          Mohamed el Ouariachi
-        </h1>
-        <h3 class="text-xl font-semibold text-text/80 mb-2 font-amulya">
-          {t("home.occupation")}
-        </h3>
-        <div class="flex items-center gap-x-2">
-          <a href="https://x.com/_ouariachi" aria-label="Twitter | X">
-            <X width={20} height={20} />
-          </a>
-          <a href="https://github.com/ouariachi" aria-label="Github">
-            <Github width={24} height={24} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ouariachi/"
-            aria-label="Linkedin"
+        <source src="/mohamed_waves.webm" type="video/webm" />
+      </video>
+
+      <div
+        class="mt-10 w-[130px] mx-auto md:mx-0 h-[130px] border-2 border-text bg-text rounded-xl overflow-hidden"
+      >
+        <Image
+          id="image-profile"
+          src="/me.webp"
+          width={160}
+          height={160}
+          alt={t("home.imageAlt")}
+          class="md:grayscale transition-all duration-300 ease-in-out md:cursor-none select-none openCursor"
+          transition:persist
+        />
+      </div>
+    }
+
+    { !headerMinimal &&
+      <div 
+        class={cn(
+          "flex items-end-safe justify-between",
+          headerMinimal ? "mt-14 md:mt-0" : "",
+        )}
+      >
+        <div
+          class="flex flex-col items-center justify-center text-center mx-auto md:mx-0 md:items-start md:justify-start md:text-left gap-y-2"
+        >
+            <h1 class="text-2xl font-bold mt-10 font-amulya">
+              Mohamed el Ouariachi
+            </h1>
+            <h3 class="text-xl font-semibold text-text/80 mb-2 font-amulya">
+              {t("home.occupation")}
+            </h3>
+
+            <div class="flex items-center gap-x-2">
+              <a href="https://x.com/_ouariachi" aria-label="Twitter | X">
+                <X width={20} height={20} />
+              </a>
+              <a href="https://github.com/ouariachi" aria-label="Github">
+                <Github width={24} height={24} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ouariachi/"
+                aria-label="Linkedin"
+              >
+                <Linkedin width={24} height={24} />
+              </a>
+              <a href="mailto:mohamed@ouariachi.com" aria-label="Email">
+                <Mail width={24} height={24} />
+              </a>
+            </div>
+        </div>
+
+        <div
+          class={cn(
+            "absolute top-2 left-1/2 -translate-x-1/2 bg-background border-text border-2 dark:border-1 rounded-2xl flex gap-x-0.5",
+            "md:static md:translate-x-0 md:bg-transparent md:border-none",
+          )}
           >
-            <Linkedin width={24} height={24} />
-          </a>
-          <a href="mailto:mohamed@ouariachi.com" aria-label="Email">
-            <Mail width={24} height={24} />
+          <button
+            class="p-2 cursor-pointer text-text rounded-xl hover:bg-text/20"
+            onclick="toggleTheme()"
+          >
+            <Theme width={24} height={24} />
+          </button>
+
+          <a
+            href={newRoute}
+            class="p-2 cursor-pointer text-text rounded-xl hover:bg-text/20"
+            aria-label={t("home.changeLanguage")}
+            >
+            {
+              currentLocale !== "en" ? (
+                <Spain width={24} height={24} />
+              ) : (
+                <UnitedKingdom width={24} height={24} />
+              )
+            }
           </a>
         </div>
       </div>
-
-      <div
-        class={cn(
-          "absolute top-2 left-1/2 -translate-x-1/2 bg-background border-text border-2 dark:border-1 rounded-2xl flex gap-x-0.5",
-          "md:static md:translate-x-0 md:bg-transparent md:border-none",
-        )}
-      >
-        <button
-          class="p-2 cursor-pointer text-text rounded-xl hover:bg-text/20"
-          onclick="toggleTheme()"
-        >
-          <Theme width={24} height={24} />
-        </button>
-
-        <a
-          href={newRoute}
-          class="p-2 cursor-pointer text-text rounded-xl hover:bg-text/20"
-          aria-label={t("home.changeLanguage")}
-        >
-          {
-            currentLocale !== "en" ? (
-              <Spain width={24} height={24} />
-            ) : (
-              <UnitedKingdom width={24} height={24} />
-            )
-          }
-        </a>
-      </div>
-    </div>
+    }
   </div>
 
   <nav class="flex items-center justify-center md:justify-start mt-5">

@@ -31,6 +31,7 @@ export const ui = {
 
     // blog
     "blog.empty": "Aún no hay publicaciones",
+    "blog.published": "Publicado",
 
     // contact
     "contact.text": "¿Tienes algo en mente? Estoy a solo un mensaje de distancia. Encuentra mis redes y correo justo arriba para empezar."
@@ -60,6 +61,7 @@ export const ui = {
 
     // blog
     "blog.empty": "No posts yet",
+    "blog.published": "Published",
 
     // contact
     "contact.text": "Got something on your mind? I’m just a message away. Find my socials and email right above to get started."

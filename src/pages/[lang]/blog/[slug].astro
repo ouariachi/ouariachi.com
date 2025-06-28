@@ -1,0 +1,35 @@
+---
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+import Layout from '../../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = Object.values(import.meta.glob("../../../content/posts/*/*.md", { eager: true }));
+  return posts.map((post: any) => {
+    const { lang, slug } = post.frontmatter;
+    return {
+      params: {
+        lang,
+        slug
+      }
+    };
+  });
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const slug = Astro.params.slug;
+const posts = Object.values(import.meta.glob("../../../content/posts/*/*.md", { eager: true }));
+const post: any = posts.find((post: any) => post.frontmatter.lang === lang && post.frontmatter.slug === slug);
+---
+<Layout title={post.frontmatter.title} headerMinimal={true}>
+  <article class="mt-10">
+    <h1 class="text-4xl font-bold font-amulya">
+      {post.frontmatter.title}
+    </h1>
+    <time datetime={post.frontmatter.date} class="text-text/80 text-sm">
+      {new Date(post.frontmatter.date).toLocaleDateString(lang, { year: "numeric", month: "long", day: "numeric" })}
+    </time>
+
+    <div class="blog-content mt-6" set:html={post.compiledContent()} />
+  </article>
+</Layout>
