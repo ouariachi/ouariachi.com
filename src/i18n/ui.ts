@@ -22,7 +22,7 @@ export const ui = {
     "timeline.cta": "Contacta conmigo",
 
     "timeline.0.title": "Buscando empleo",
-    "timeline.0.description": "En búsqueda de mi primera oportunidad laboral en el área del desarrollo web, con ganas de seguir aprendiendo y creciendo profesionalmente.",
+    "timeline.0.description": "En búsqueda activa de trabajo en el área del desarrollo web.",
     "timeline.0.date": "Actualmente",
 
     "timeline.1.title": "Prácticas de Desarrollo de Aplicaciones Web",
@@ -52,7 +52,7 @@ export const ui = {
     "timeline.cta": "Get in touch",
 
     "timeline.0.title": "Job Seeking",
-    "timeline.0.description": "Actively looking for my first opportunity in the web development field, eager to learn and grow professionally.",
+    "timeline.0.description": "Actively looking for a job in the web development field.",
     "timeline.0.date": "Present",
 
     "timeline.1.title": "Web Application Development Internship",
