@@ -5,8 +5,8 @@
 @theme {
   --color-background: rgb(225, 225, 225);
   --color-text: rgb(0, 0, 0);
-  --color-primary: #997e27;  /* Gold */
-  --color-secondary: #ffe137; /* Lighter gold */
+  --color-primary: rgb(0, 0, 0);
+  --color-secondary: rgb(0, 0, 0);
 
   --font-synonym: 'Synonym', sans-serif;
   --font-amulya: 'Amulya', sans-serif;
@@ -23,8 +23,8 @@
   .dark {
     --color-background: rgb(0, 0, 0);
     --color-text: rgb(255, 255, 255);
-    --color-primary: #ffcc70;
-    --color-secondary: #695a1b;
+    --color-primary: rgb(255, 255, 255);
+    --color-secondary: rgb(255, 255, 255);
   }
 }
 
@@ -53,22 +53,20 @@
 }
 
 .blog-content {
-  h1, h2, h3, h4, h5, h6 {
+  padding-bottom: 20px;
+
+  h2, h3, h4, h5, h6 {
     font-weight: 600;
     margin: 2rem 0 1rem;
     line-height: 1.25;
+    color: #fff;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+  h1 {  
+    display: none;
   }
-
-  h1 { font-size: 2.25rem; }
-  h2 { font-size: 1.75rem; }
+  
+  h2 { font-size: 2rem; }
   h3 { font-size: 1.5rem; }
   h4 { font-size: 1.25rem; }
   h5 { font-size: 1.1rem; }
@@ -76,6 +74,7 @@
 
   p {
     margin: 1rem 0;
+    color: #eee;
   }
 
   a {

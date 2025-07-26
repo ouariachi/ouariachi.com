@@ -6,8 +6,6 @@ slug: "ia-sin-hype-lo-que-realmente-automatiza"
 lang: "es"
 ---
 
-# IA sin Hype: lo que Realmente Automatiza (y lo que No) en 2025
-
 La Inteligencia Artificial (IA) se ha convertido rápidamente en una palabra de moda en las discusiones tecnológicas, a menudo rodeada de promesas exageradas y miedos distópicos. En 2025, es crucial separar el hype de la realidad y entender dónde la IA realmente ofrece un valor transformador en la industria IT hoy en día. Este artículo profundiza en los roles matizados que desempeña la inteligencia artificial en áreas como la documentación, testing y soporte, y aclara por qué sigue siendo menos impactante en campos como la arquitectura de producto, el diseño y el liderazgo.
 
 ## La Transformación de la Documentación con IA

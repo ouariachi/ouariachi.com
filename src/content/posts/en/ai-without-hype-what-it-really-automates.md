@@ -6,8 +6,6 @@ slug: "ai-without-hype-what-it-really-automates"
 lang: "en"
 ---
 
-# AI Without Hype: What It Really Automates (and What It Doesn't) in 2025
-
 Artificial Intelligence (AI) has rapidly become a buzzword in technology discussions, often surrounded by a cloud of both exaggerated promises and dystopian fears. As we stand in 2025, it is crucial to separate the hype from the reality and understand where AI truly delivers transformative value in the IT industry today. This article delves into the nuanced roles AI plays in areas like documentation, testing, and support, and clarifies why it remains less impactful in fields like product architecture, design, and leadership.
 
 ## AI Transforming Documentation
