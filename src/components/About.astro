@@ -1,5 +1,7 @@
 ---
 import CV from "./Icons/CV.astro";
+import Github from "./Icons/Github.astro";
+import Website from "./Icons/Website.astro";
 
 const { t, lang } = Astro.props;
 
@@ -17,15 +19,26 @@ const timeline = [
     date: t("timeline.1.date"),
     cta: false
   }
-]
+];
+
+const projects = [
+  {
+    title: t("home.projects.0.title"),
+    description: t("home.projects.0.description"),
+    tags: t("home.prokects.0.tags"),
+    link: "https://ciclos-melilla-cb.vercel.app",
+    repository: "https://github.com/ouariachi/ciclos-melilla-cb",
+    image: "/ciclos-melilla.png",
+  }
+];
 
 const cv = lang === "es" ? "/mohamed_el_ouariachi_cv_es.pdf" : "/mohamed_el_ouariachi_cv_en.pdf";
 ---
 
-<div class="text-text/80 mt-5 mb-10 px-4 md:px-0">
-  <h3 class="text-base md:text-xl font-bold ">{t("home.about")}</h3>
+<div class="mt-5 mb-10 px-4 md:px-0">
+  <h3 class="text-base md:text-xl font-bold">{t("home.about")}</h3>
   
-  <div class="mt-7 text-text/70">
+  <div class="mt-7 text-text">
     <a 
       href={cv} 
       target="_blank" 
@@ -36,7 +49,7 @@ const cv = lang === "es" ? "/mohamed_el_ouariachi_cv_es.pdf" : "/mohamed_el_ouar
     </a>
   </di>
 
-  <div class="mt-10 pb-20">
+  <div class="mt-10">
     <h2 class="text-xl font-bold font-amulya">{t("home.about.experience")}</h2>
     <ul class="relative border-s border-gray-500 dark:border-gray-700">                  
       {timeline.map((item) => (
@@ -48,13 +61,13 @@ const cv = lang === "es" ? "/mohamed_el_ouariachi_cv_es.pdf" : "/mohamed_el_ouar
           <h3 class="text-lg font-semibold text-text">
             {item.title}
           </h3>
-          <p class="mb-4 text-base font-normal text-text/70">
+          <p class="mb-4 text-base font-normal text-text">
             {item.description}
           </p>
           { item.cta &&
             <a 
               href={item.ctaLink}
-              class="group flex items-center px-4 py-2 text-sm font-medium text-text/70 bg-text/10 w-fit rounded-lg hover:bg-text/40 hover:text-text transition-all"
+              class="group flex items-center px-4 py-2 text-sm font-medium bg-text/10 w-fit rounded-lg hover:bg-text/40 hover:transition-all"
             >
               {t("timeline.cta")}
               <svg class="group-hover:translate-x-1 w-3 h-3 ms-2 rtl:rotate-180 transition-all" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
@@ -65,5 +78,50 @@ const cv = lang === "es" ? "/mohamed_el_ouariachi_cv_es.pdf" : "/mohamed_el_ouar
         </li>
       ))}
     </ul>
+  </div>
+
+  <div class="mt-20 pb-20">
+    <h2 class="text-xl font-bold font-amulya">{t("home.projects.title")}</h2>
+    <p class="text-base font-normal">{t("home.projects.description")}</p>
+    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+      {projects.map((project) => (
+        <div
+          class="group flex flex-col items-center justify-center p-4 rounded-lg bg-text/10 hover:bg-text/20 transition-all"
+        >
+          <a
+            href={project.link}
+            target="_blank" 
+            rel="noopener noreferrer" 
+          >
+            <img 
+              src={project.image} 
+              alt={project.title} 
+              class="w-full h-auto rounded-lg object-cover"
+            />
+            <h3 class="mt-4 text-lg font-semibold text-center">
+              {project.title}
+            </h3>
+            <p class="mt-2 text-base font-normal text-center">
+              {project.description}
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2 text-xs font-normal">
+              {project.tags.map((tag: string) => (
+                <span class="inline-block bg-text/10 rounded-full px-2 py-1 text-xs font-normal">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </a>
+          <div class="flex items-center justify-center gap-2 mt-3">
+            <a href={project.link} class="cursor-pointer text-text/80 hover:transition-all duration-300">
+              <Website />
+            </a>
+            <a href={project.repository} class="cursor-pointer text-text/80 hover:transition-all duration-300">
+              <Github />
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
   </div>
 </div>

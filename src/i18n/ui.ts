@@ -18,6 +18,13 @@ export const ui = {
     "home.about.experience": "Experiencia",
     "home.cv": "Mi currículum",
 
+    "home.projects.title": "Proyectos",
+    "home.projects.description": "Algunos de los proyectos en los que he trabajado.",
+
+    "home.projects.0.title": "Ciclos Melilla",
+    "home.projects.0.description": "Una landing page para la tienda de Ciclos Melilla, una tienda especializada en la venta de bicicletas.",
+    "home.prokects.0.tags": ["Astro", "TailwindCSS", "TypeScript", "React", "Cloudinary", "Vercel"],
+
     // timeline 
     "timeline.cta": "Contacta conmigo",
 
@@ -47,6 +54,13 @@ export const ui = {
     "home.about": "Developer focused on creating efficient, scalable solutions. I’m passionate about clean code and building tools that make life easier.",
     "home.about.experience": "Experience",
     "home.cv": "My resume",
+
+    "home.projects.title": "Projects",
+    "home.projects.description": "Some of the projects I've worked on.",
+
+    "home.projects.0.title": "Ciclos Melilla",
+    "home.projects.0.description": "A landing page for Ciclos Melilla, a store specializing in bicycle sales.",
+    "home.projects.0.tags": ["Astro", "TailwindCSS", "TypeScript", "React", "Cloudinary", "Vercel"],
 
     // timeline
     "timeline.cta": "Get in touch",
