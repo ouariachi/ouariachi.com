@@ -23,7 +23,7 @@ export const ui = {
 
     "home.projects.0.title": "Ciclos Melilla",
     "home.projects.0.description": "Una landing page para la tienda de Ciclos Melilla, una tienda especializada en la venta de bicicletas.",
-    "home.prokects.0.tags": ["Astro", "TailwindCSS", "TypeScript", "React", "Cloudinary", "Vercel"],
+    "home.prokects.0.tags": ["Next.js", "TailwindCSS", "TypeScript", "Cloudinary", "Vercel"],
 
     // timeline 
     "timeline.cta": "Contacta conmigo",
@@ -60,7 +60,7 @@ export const ui = {
 
     "home.projects.0.title": "Ciclos Melilla",
     "home.projects.0.description": "A landing page for Ciclos Melilla, a store specializing in bicycle sales.",
-    "home.projects.0.tags": ["Astro", "TailwindCSS", "TypeScript", "React", "Cloudinary", "Vercel"],
+    "home.projects.0.tags": ["Next.js", "TailwindCSS", "TypeScript", "Cloudinary", "Vercel"],
 
     // timeline
     "timeline.cta": "Get in touch",
