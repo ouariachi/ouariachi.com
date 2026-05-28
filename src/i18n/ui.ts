@@ -36,6 +36,14 @@ export const ui = {
     "timeline.1.description": "Realicé las prácticas del Grado Superior de DAW en la empresa DBC.",
     "timeline.1.date": "Fabrero 2025 - Marzo 2025",
 
+    "timeline.2.title": "Prácticas de desarrollo de software",
+    "timeline.2.description": "Creación de la página web corporativa, mantenimiento de programas internos, y soporte técnico en AvantService Melilla.",
+    "timeline.2.date": "Febrero 2026 - Marzo 2026",
+
+    "timeline.3.title": "Desarrollador de software",
+    "timeline.3.description": "Desarrollo de automatizaciones con IA, desarrollo y mantenimiento de aplicaciones web, y optimización de procesos internos en AvantService Melilla.",
+    "timeline.3.date": "Marzo 2026 - Mayo 2026",
+
     // blog
     "blog.empty": "Aún no hay publicaciones",
     "blog.published": "Publicado",
@@ -71,7 +79,15 @@ export const ui = {
 
     "timeline.1.title": "Web Application Development Internship",
     "timeline.1.description": "I did my internship for my DAW Degree at DBC company.",
-    "timeline.1.date": "February 2022 - March 2022",
+    "timeline.1.date": "February 2025 - March 2025",
+
+    "timeline.2.title": "Software Development Internship",
+    "timeline.2.description": "Created the corporate website, maintained internal programs, and provided technical support at AvantService Melilla.",
+    "timeline.2.date": "February 2026 - March 2026",
+
+    "timeline.3.title": "Software Developer",
+    "timeline.3.description": "Developed AI automations, built and maintained web applications, and optimized internal processes at AvantService Melilla.",
+    "timeline.3.date": "March 2026 - May 2026",
 
     // blog
     "blog.empty": "No posts yet",
