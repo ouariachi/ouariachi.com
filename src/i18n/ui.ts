@@ -34,7 +34,7 @@ export const ui = {
 
     "timeline.1.title": "Prácticas de Desarrollo de Aplicaciones Web",
     "timeline.1.description": "Realicé las prácticas del Grado Superior de DAW en la empresa DBC.",
-    "timeline.1.date": "Fabrero 2025 - Marzo 2025",
+    "timeline.1.date": "Enero 2025 - Marzo 2025",
 
     "timeline.2.title": "Prácticas de desarrollo de software",
     "timeline.2.description": "Creación de la página web corporativa, mantenimiento de programas internos, y soporte técnico en AvantService Melilla.",
@@ -79,7 +79,7 @@ export const ui = {
 
     "timeline.1.title": "Web Application Development Internship",
     "timeline.1.description": "I did my internship for my DAW Degree at DBC company.",
-    "timeline.1.date": "February 2025 - March 2025",
+    "timeline.1.date": "January 2025 - March 2025",
 
     "timeline.2.title": "Software Development Internship",
     "timeline.2.description": "Created the corporate website, maintained internal programs, and provided technical support at AvantService Melilla.",
